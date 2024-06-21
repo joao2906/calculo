@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Média</title>
+    <style>
+        body{
+            background-image: url(FUNDO1.png);
+            color: aliceblue;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+            background-color: rgb(6, 10, 31);
+        }
+        
+                .aprovado {
+            color: blue;
+        }
+        .reprovado {
+            color: red;
+        }
+        button {background-color:rgb(200, 204, 223);
+        }
+        input {background-color: rgb(209, 209, 209);
+        }
+        
+    </style>
+</head>
+<body>
+    
+
+   
+    <h1>Cálculo de Média</h1>
+
+    <label for="nota1">Nota 1:</label>
+    <input type="number" id="nota1"><br><br>
+
+    <label for="nota2">Nota 2:</label>
+    <input type="number" id="nota2"><br><br>
+
+    <button id="botão" onclick="calcularMedia()">Calcular Média </button>
+
+    <p>Média: <span id="media"></span></p>
+    <p>Situação: <span id="situacao"></span></p>
+
+
+
+    <script>
+        function calcularMedia() {
+            const nota1 = parseFloat(document.getElementById('nota1').value);
+            const nota2 = parseFloat(document.getElementById('nota2').value);
+            const media = (nota1 + nota2) / 2;
+
+
+            
+            document.getElementById('media').innerHTML = media.toFixed(2);
+
+            const situacaoSpan = document.getElementById('situacao');
+            if (media >= 6) {
+                situacaoSpan.innerHTML = 'APROVADO';
+                situacaoSpan.className = 'aprovado';
+            } else {
+                situacaoSpan.innerHTML = 'REPROVADO';
+                situacaoSpan.className = 'reprovado';
+            }
+        }
+    </script>
+</body>
+</html>
